@@ -1,27 +1,23 @@
-docs/game-draft.md에 나온 초안을 따를 것.
-메인스토리 퀘스트 채집재료 아이템 등의 정보는 docs/폴더에서 불러오지 말고 별도 폴더에 관리할 것
-
-메뉴에 있는 버튼은 기본적으로 "메인스토리, 퀘스트, 채집, 연금, 판매, 컨테이너, 세이브"로 나눌것.
-
-메인스토리는 docs/mainstory.md에 적을 것이고, 메인스토리는 꾸준히 추가될 것이므로 향후 추가할 것을 감안하여 작성할 것.
-메인스토리는 Visual Novel 처럼 한 번에 3~4 줄 씩 보여주고 다음 버튼을 통해서 여러번에 걸쳐서 읽도록 할 것.
-메인스토리는 지금 줄거리만 적혀있으니 RPG게임에 맞게 적절하게 다시 작성할 것.
-
-퀘스트는 docs/quest.md 에 적을 것이고, 퀘스트는 꾸준히 추가될 것이므로 향후 추가할 것을 감안하여 작성할 것.
-
-채집버튼은 10 콜이 필요하고, docs/materials.json에 채집될 물품과 그 확률이 적혀있음.(1이 100%임, 즉 0.05는 5% 라는 뜻)
-
-연금버튼은 연금을 하는 기능이며, 연금할 수 있는 조합 아이템의 목록과 그 레시피는 docs/items.json 에 나와있음.
-클릭할 때마다 레시피에 따라 필요한 재료가 소비되어 아이템 하나가 완성되는 식 (예를 들어, 증류수를 한 개 만들면 깨끗한 물 2개가 소비됨)
-
-연금 조합 레시피는 그 하위 재료가 모두 입수되기 전까지는 목록에 표시하지 말 것
-예를 들어, 만능중화제-무지개의 이름과 레시피는 중화제-적,중화제-청,중화제-황,중화제-녹,정령의 눈물이 전부 입수되기 전까지는 목록에 표시되지 않아야함.
-(단, 한 번 이상 해금되었으면 그 때 부턴 쭉 표시)
-
-판매는 docs/items.json에 나온 가격대로 판매됨. 현재 소지하고 있는 아이템의 목록과 개수만 판매리스트에 표시되도록 할 것. 클릭할 때마다 낱개로 팔림.
-
-컨테이너는 현재 가지고 있는 채집된 재료와 조합아이템의 종류와 개수를 보여줌. 재료와 조합아이템을 분리하여 표시할것.
-
-세이브는 기본적으로 따로 세이브하지 않아도 새로고침하거나 브라우저를 닫았다가 열어도 진행상태가 저장되도록 하나, 수동으로 저장하는 버튼과 저장을 초기화하는 버튼을 넣어야함.
-
-로그는 최신 행동 10개만 표시하고, 그 이전의 행동은 삭제하여 브라우저 저장소가 과하게 잡아먹지 않도록함.
+시작 콜을 100콜로 바꿔줘.
+그리고 지금 게임 켰는데 뭐 아무것도 버튼이 안 떠. 일단 오류 정보를 여기다가 알려줄게
+TypeError: Cannot read properties of undefined (reading 'Future')
+    at Web of Trust.user.js:1765:30
+    at Window.<anonymous> (Web of Trust.user.js:1784:2)
+    at Web of Trust.user.js:1732:67
+    at e.anonymous [as $content] (Web of Trust.user.js:1732:143)
+    at Web of Trust.user.js:2:36447
+    at o (Web of Trust.user.js:2:36049)
+    at Web of Trust.user.js:2:36079
+    at Web of Trust.user.js:2:36427
+    at Web of Trust.user.js:14872:5
+game.js:109 Uncaught ReferenceError: Cannot access 'state' before initialization
+    at game.js:109:51
+    at Array.every (<anonymous>)
+    at allQuestIdsCompleted (game.js:109:14)
+    at conditionMet (game.js:118:14)
+    at Array.every (<anonymous>)
+    at game.js:143:84
+    at Array.forEach (<anonymous>)
+    at hydrateProgress (game.js:142:11)
+    at loadState (game.js:41:5)
+    at game.js:34:13
