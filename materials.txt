@@ -1,0 +1,51 @@
+[
+  { "name": "깨끗한 물", "probability": 0.075 },
+  { "name": "단단한 돌", "probability": 0.065 },
+  { "name": "부드러운 흙", "probability": 0.060 },
+  { "name": "식물의 줄기", "probability": 0.060 },
+  { "name": "철광석", "probability": 0.055 },
+  { "name": "폭발하는 돌", "probability": 0.050 },
+  { "name": "짐승의 뼈", "probability": 0.045 },
+
+  { "name": "빨간색 꽃", "probability": 0.035 },
+  { "name": "파란색 꽃", "probability": 0.035 },
+  { "name": "노란색 꽃", "probability": 0.035 },
+  { "name": "초록색 꽃", "probability": 0.035 },
+
+  { "name": "쓴 약초", "probability": 0.030 },
+  { "name": "늪지대 진흙", "probability": 0.030 },
+
+  { "name": "흑연", "probability": 0.025 },
+  { "name": "은광석", "probability": 0.025 },
+  { "name": "목화솜", "probability": 0.025 },
+  { "name": "튼튼한 거미줄", "probability": 0.025 },
+
+  { "name": "달콤한 수액", "probability": 0.025 },
+  { "name": "튼튼한 짐승 뼈", "probability": 0.025 },
+
+  { "name": "독버섯", "probability": 0.025 },
+  { "name": "박쥐의 날개", "probability": 0.025 },
+
+  { "name": "화염초", "probability": 0.020 },
+  { "name": "만년빙", "probability": 0.020 },
+  { "name": "번개광석", "probability": 0.020 },
+  { "name": "회오리 깃털", "probability": 0.020 },
+
+  { "name": "백금광석", "probability": 0.015 },
+  { "name": "마법의 깃털", "probability": 0.015 },
+  { "name": "별의 파편", "probability": 0.015 },
+  { "name": "생명의 잎사귀", "probability": 0.015 },
+  { "name": "여왕벌의 꿀", "probability": 0.015 },
+  { "name": "환영의 깃털", "probability": 0.015 },
+
+  { "name": "정령의 눈물", "probability": 0.006 },
+  { "name": "마법의 자철석", "probability": 0.003 },
+
+  { "name": "용의 결정", "probability": 0.002 },
+  { "name": "세계수의 잎", "probability": 0.002 },
+  { "name": "신성한 이슬", "probability": 0.002 },
+  { "name": "어둠의 결정", "probability": 0.002 },
+  { "name": "영혼석", "probability": 0.002 },
+
+  { "name": "파멸의 심장", "probability": 0.001 }
+]
