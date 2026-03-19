@@ -20,7 +20,7 @@ const parseRecipeEntry = (entry) => {
 };
 
 const getInitialState = () => ({
-  col: 120,
+  col: 100,
   inventory: { materials: {}, items: {} },
   seen: { materials: [], items: [] },
   stories: { unlocked: ['0100'], read: [], activeId: '0100', pageIndex: 0, newIds: ['0100'] },
@@ -105,17 +105,17 @@ function removeItem(name, count = 1) {
   return true;
 }
 
-function allQuestIdsCompleted(ids) {
-  return ids.every((id) => state.quests.completed.includes(id));
+function allQuestIdsCompleted(ids, targetState = state) {
+  return ids.every((id) => targetState.quests.completed.includes(id));
 }
 
-function conditionMet(condition) {
+function conditionMet(condition, targetState = state) {
   if (!condition) return true;
   switch (condition.type) {
     case 'storyRead':
-      return state.stories.read.includes(condition.storyId);
+      return targetState.stories.read.includes(condition.storyId);
     case 'questClearAll':
-      return allQuestIdsCompleted(condition.questIds);
+      return allQuestIdsCompleted(condition.questIds, targetState);
     default:
       return false;
   }
@@ -140,7 +140,8 @@ function unlockQuest(questId) {
 
 function hydrateProgress(targetState = state, options = {}) {
   stories.forEach((story) => {
-    const unlocked = story.unlockConditions.length === 0 || story.unlockConditions.every(conditionMet);
+    const unlocked = story.unlockConditions.length === 0
+      || story.unlockConditions.every((condition) => conditionMet(condition, targetState));
     if (unlocked && !targetState.stories.unlocked.includes(story.id)) {
       targetState.stories.unlocked.push(story.id);
       if (!options.initial) {
@@ -153,7 +154,7 @@ function hydrateProgress(targetState = state, options = {}) {
   });
 
   quests.forEach((quest) => {
-    const unlocked = quest.unlockConditions.every(conditionMet);
+    const unlocked = quest.unlockConditions.every((condition) => conditionMet(condition, targetState));
     if (unlocked && !targetState.quests.active.includes(quest.id) && !targetState.quests.completed.includes(quest.id)) {
       targetState.quests.active.push(quest.id);
       if (!options.initial) {
