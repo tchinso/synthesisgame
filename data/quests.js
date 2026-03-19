@@ -1,0 +1,16 @@
+export const quests = [
+  { id: '0101', name: '마을 우물 정비', description: '아르시아가 우물 청소에 쓸 깨끗한 물 2개를 부탁했다.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0100' }], objective: { itemName: '깨끗한 물', count: 2 }, rewards: { col: 50 } },
+  { id: '0102', name: '광장 바닥 보수', description: '광장 균열을 메우기 위해 단단한 돌 2개를 납품하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0100' }], objective: { itemName: '단단한 돌', count: 2 }, rewards: { col: 50 } },
+  { id: '0103', name: '화단 흙갈이', description: '부드러운 흙 2개를 가져와 화단을 정리하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0100' }], objective: { itemName: '부드러운 흙', count: 2 }, rewards: { col: 50 } },
+  { id: '0104', name: '담장 덩굴 묶기', description: '식물의 줄기 2개를 모아 담장 덩굴을 묶을 끈을 만들자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0100' }], objective: { itemName: '식물의 줄기', count: 2 }, rewards: { col: 50 } },
+  { id: '0105', name: '대장간 지원', description: '철광석 2개를 납품해 대장간 주문을 도와주자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0100' }], objective: { itemName: '철광석', count: 2 }, rewards: { col: 50 } },
+  { id: '0106', name: '채석장 위험물 수거', description: '폭발하는 돌 2개를 수거해 안전하게 처리하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0100' }], objective: { itemName: '폭발하는 돌', count: 2 }, rewards: { col: 50 } },
+  { id: '0107', name: '수습 연금사의 실습', description: '짐승의 뼈 2개를 모아 실습 재료를 채워 두자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0100' }], objective: { itemName: '짐승의 뼈', count: 2 }, rewards: { col: 50 } },
+  { id: '0108', name: '붉은 꽃 장식', description: '빨간색 꽃 1개를 전달해 마을 장식을 완성하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0100' }], objective: { itemName: '빨간색 꽃', count: 1 }, rewards: { col: 50 } },
+  { id: '0109', name: '파란 꽃 장식', description: '파란색 꽃 1개를 전달해 마을 장식을 완성하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0100' }], objective: { itemName: '파란색 꽃', count: 1 }, rewards: { col: 50 } },
+  { id: '0110', name: '노란 꽃 장식', description: '노란색 꽃 1개를 전달해 마을 장식을 완성하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0100' }], objective: { itemName: '노란색 꽃', count: 1 }, rewards: { col: 50 } },
+  { id: '0111', name: '초록 꽃 장식', description: '초록색 꽃 1개를 전달해 마을 장식을 완성하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0100' }], objective: { itemName: '초록색 꽃', count: 1 }, rewards: { col: 50 } },
+  { id: '0112', name: '약방 심부름', description: '쓴 약초 1개를 약방에 전해 회복제 실험을 돕자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0100' }], objective: { itemName: '쓴 약초', count: 1 }, rewards: { col: 50 } },
+  { id: '0113', name: '늪지 조사 기록', description: '늪지대 진흙 1개를 가져와 조사를 마무리하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0100' }], objective: { itemName: '늪지대 진흙', count: 1 }, rewards: { col: 50 } },
+  { id: '0201', name: '먼 길을 위한 준비', description: '요정의 숲으로 떠나기 전에 증류수 1개를 준비하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0200' }], objective: { itemName: '증류수', count: 1 }, rewards: { col: 100 } },
+];

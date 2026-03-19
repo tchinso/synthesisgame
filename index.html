@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>포포리의 합성 공방</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero-card">
+        <div>
+          <p class="eyebrow">Fairy Tale Alchemy RPG</p>
+          <h1>포포리의 합성 공방</h1>
+          <p class="hero-copy">
+            채집으로 재료를 모으고, 연금으로 필요한 아이템을 만들고, 퀘스트와 메인스토리를 진행하세요.
+          </p>
+        </div>
+        <div class="status-summary">
+          <div class="summary-pill">
+            <span>현재 콜</span>
+            <strong id="col-display">0</strong>
+          </div>
+          <div class="summary-pill">
+            <span>진행 중 메인스토리</span>
+            <strong id="story-summary">없음</strong>
+          </div>
+          <div class="summary-pill">
+            <span>진행 중 퀘스트</span>
+            <strong id="quest-summary">0개</strong>
+          </div>
+        </div>
+      </header>
+
+      <nav class="menu-tabs" id="menu-tabs">
+        <button data-tab="story" class="active">메인스토리</button>
+        <button data-tab="quests">퀘스트</button>
+        <button data-tab="gather">채집</button>
+        <button data-tab="alchemy">연금</button>
+        <button data-tab="sell">판매</button>
+        <button data-tab="container">컨테이너</button>
+        <button data-tab="save">세이브</button>
+      </nav>
+
+      <main class="content-grid">
+        <section class="main-panel">
+          <div id="tab-story" class="tab-panel active"></div>
+          <div id="tab-quests" class="tab-panel"></div>
+          <div id="tab-gather" class="tab-panel"></div>
+          <div id="tab-alchemy" class="tab-panel"></div>
+          <div id="tab-sell" class="tab-panel"></div>
+          <div id="tab-container" class="tab-panel"></div>
+          <div id="tab-save" class="tab-panel"></div>
+        </section>
+
+        <aside class="side-panel">
+          <section class="panel-card">
+            <div class="panel-header">
+              <h2>최근 로그</h2>
+              <span>최신 10개</span>
+            </div>
+            <ul id="log-list" class="log-list"></ul>
+          </section>
+          <section class="panel-card">
+            <div class="panel-header">
+              <h2>해금 알림</h2>
+              <span>새로운 스토리/레시피</span>
+            </div>
+            <ul id="unlock-list" class="unlock-list"></ul>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
