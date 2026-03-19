@@ -272,6 +272,17 @@ function sellItem(name) {
   render();
 }
 
+function formatRewardSummary(rewards = {}) {
+  const parts = [];
+  if (rewards.col) {
+    parts.push(`${rewards.col}콜`);
+  }
+  (rewards.items || []).forEach(({ name, count }) => {
+    parts.push(`${name} x${count}`);
+  });
+  return parts.join(' + ') || '없음';
+}
+
 function completeQuest(questId) {
   const quest = questMap.get(questId);
   const { itemName, count } = quest.objective;
@@ -283,9 +294,10 @@ function completeQuest(questId) {
 
   removeItem(itemName, count);
   state.col += quest.rewards.col || 0;
+  (quest.rewards.items || []).forEach(({ name, count: rewardCount }) => addItem(name, rewardCount));
   state.quests.active = state.quests.active.filter((id) => id !== questId);
   state.quests.completed.push(questId);
-  addLog(`퀘스트 완료: ${quest.name} (+${quest.rewards.col || 0}콜)`);
+  addLog(`퀘스트 완료: ${quest.name} (+${formatRewardSummary(quest.rewards)})`);
   hydrateProgress();
   render();
 }
@@ -441,7 +453,7 @@ function renderQuestPanel() {
             <div class="quest-card">
               <div class="quest-meta">
                 <span class="meta-pill">퀘스트 ${quest.id}</span>
-                <span class="meta-pill">보상 ${quest.rewards.col}콜</span>
+                <span class="meta-pill">보상 ${formatRewardSummary(quest.rewards)}</span>
                 <span class="meta-pill">${ready ? '완료 가능' : '진행 중'}</span>
               </div>
               <div>
