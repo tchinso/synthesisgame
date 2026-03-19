@@ -27,4 +27,7 @@ export const quests = [
   { id: '0305', name: '푸른 기운 분석', description: '희미한 냉기를 추적할 수 있도록 중화제 청 2개를 보태자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0300' }], objective: { itemName: '중화제 청', count: 2 }, rewards: { col: 1000 } },
   { id: '0306', name: '노란 기운 분석', description: '자수 문양에 밴 미지의 포자를 정리하려면 중화제 황 2개가 필요하다.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0300' }], objective: { itemName: '중화제 황', count: 2 }, rewards: { col: 1000 } },
   { id: '0307', name: '초록 기운 분석', description: '숲의 수액 흔적을 지우기 위해 중화제 녹 2개를 보건 선생님께 전달하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0300' }], objective: { itemName: '중화제 녹', count: 2 }, rewards: { col: 1000 } },
+
+  { id: '0401', name: '깨어날 수 있는 처방', description: '보건 선생님이 소녀에게 쓸 수 있도록 힐링쉘브 1개를 납품하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0400' }], objective: { itemName: '힐링쉘브', count: 1 }, rewards: { col: 500 } },
+
 ];
