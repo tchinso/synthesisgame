@@ -29,5 +29,10 @@ export const quests = [
   { id: '0307', name: '초록 기운 분석', description: '숲의 수액 흔적을 지우기 위해 중화제 녹 2개를 보건 선생님께 전달하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0300' }], objective: { itemName: '중화제-녹', count: 2 }, rewards: { col: 990 } },
 
   { id: '0401', name: '깨어날 수 있는 처방', description: '보건 선생님이 소녀에게 쓸 수 있도록 힐링쉘브 1개를 납품하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0400' }], objective: { itemName: '힐링쉘브', count: 1 }, rewards: { col: 600 } },
+  { id: '0501', name: '새 방의 공방 상자', description: '히카리가 기숙사 생활을 시작할 수 있도록 크라프트 1개를 건네 작은 공방 상자를 마련하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0500' }], objective: { itemName: '크라프트', count: 1 }, rewards: { col: 1200 } },
+  { id: '0502', name: '창가를 지킬 금속 장식', description: '히카리 방 창틀을 보강할 수 있도록 잉곳 1개를 전달하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0500' }], objective: { itemName: '잉곳', count: 1 }, rewards: { col: 700 } },
+  { id: '0503', name: '이름표를 위한 종이', description: '새 이름을 적어 둘 기숙사 명찰을 만들 수 있도록 제텔 1개를 준비하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0500' }], objective: { itemName: '제텔', count: 1 }, rewards: { col: 600 } },
+  { id: '0504', name: '밤새 뒤척이는 마음', description: '불안한 밤을 보내는 히카리를 위해 힐링쉘브 1개를 다시 조제해 전달하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0500' }], objective: { itemName: '힐링쉘브', count: 1 }, rewards: { col: 600 } },
+  { id: '0505', name: '숲의 진흙에 남은 단서', description: '히카리가 쓰러져 있던 현장의 흔적을 되짚기 위해 다크워터 1개를 연구실에 납품하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0500' }], objective: { itemName: '다크워터', count: 1 }, rewards: { col: 600 } },
 
 ];
