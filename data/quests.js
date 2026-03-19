@@ -12,5 +12,5 @@ export const quests = [
   { id: '0111', name: '초록 장식 꽃', description: '초록색 꽃 1개를 축제 준비팀에 전달하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0100' }], objective: { itemName: '초록색 꽃', count: 1 }, rewards: { col: 80 } },
   { id: '0112', name: '진료소의 부탁', description: '쓴 약초 1개를 진료소에 건네자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0100' }], objective: { itemName: '쓴 약초', count: 1 }, rewards: { col: 90 } },
   { id: '0113', name: '늪지 샘플 수집', description: '늪지대 진흙 1개를 연구용으로 제출하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0100' }], objective: { itemName: '늪지대 진흙', count: 1 }, rewards: { col: 100 } },
-  { id: '0201', name: '먼 길을 위한 준비', description: '요정의 숲에 들어가기 전에 증류수 1개를 준비하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0200' }], objective: { itemName: '증류수', count: 1 }, rewards: { col: 100 } },
+  { id: '0201', name: '먼 길을 위한 준비', description: '요정의 숲에 들어가기 전에 증류수 1개를 준비하자.', category: 'delivery', unlockConditions: [{ type: 'storyRead', storyId: '0200' }], objective: { itemName: '증류수', count: 1 }, rewards: { col: 150 } },
 ];
