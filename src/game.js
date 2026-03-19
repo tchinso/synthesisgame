@@ -21,7 +21,7 @@ const parseRecipeEntry = (entry) => {
 };
 
 const getInitialState = () => ({
-  col: 100,
+  col: 300,
   inventory: { materials: {}, items: {} },
   seen: { materials: [], items: [] },
   stories: { unlocked: ['0100'], read: [], activeId: '0100', pageIndex: 0, newIds: ['0100'] },
