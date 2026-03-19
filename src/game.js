@@ -329,32 +329,34 @@ function renderMenu() {
 function renderStoryPanel() {
   const activeStory = getActiveStory();
   const unlockedStories = state.stories.unlocked.map((id) => storyMap.get(id));
+  const unreadStories = unlockedStories.filter((story) => !state.stories.read.includes(story.id));
+  const latestUnreadStory = unreadStories[unreadStories.length - 1] || null;
+  const archiveStories = unlockedStories.filter((story) => state.stories.read.includes(story.id));
 
   return `
     <article class="content-card">
       <h2 class="section-title">메인스토리</h2>
-      <p class="section-copy">스토리는 비주얼 노벨처럼 3~4줄씩 나뉘어 표시됩니다. 읽기를 완료하면 다음 퀘스트가 열릴 수 있습니다.</p>
-      <div class="card-grid two-col">
-        ${unlockedStories.map((story) => `
-          <div class="story-card">
-            <div>
-              <div class="meta-row">
-                <span class="meta-pill">스토리 ${story.id}</span>
-                ${state.stories.newIds.includes(story.id) ? '<span class="info-badge">NEW</span>' : ''}
-                ${state.stories.read.includes(story.id) ? '<span class="meta-pill">다시보기 가능</span>' : '<span class="meta-pill">읽는 중</span>'}
-              </div>
-              <h3>${story.title}</h3>
+      <p class="section-copy">최신 안읽은 메인스토리를 바로 열고, 아래에서 현재 스토리를 진행할 수 있습니다. 읽은 스토리 다시보기는 로그 바로 위에서 확인하세요.</p>
+      ${latestUnreadStory ? `
+        <div class="story-highlight">
+          <div>
+            <div class="meta-row">
+              <span class="info-badge">최신 미열람 스토리</span>
+              <span class="meta-pill">스토리 ${latestUnreadStory.id}</span>
             </div>
-            <button class="small-btn" data-open-story="${story.id}">열기</button>
+            <h3>${latestUnreadStory.title}</h3>
+            <p class="inline-note">새로 열린 스토리를 바로 이어서 읽을 수 있습니다.</p>
           </div>
-        `).join('')}
-      </div>
+          <button class="action-btn" data-open-story="${latestUnreadStory.id}">최신 스토리 열기</button>
+        </div>
+      ` : '<p class="empty-state">현재 새로 읽을 메인스토리가 없습니다. 퀘스트를 진행해 다음 스토리를 기다려 보세요.</p>'}
     </article>
     ${activeStory ? `
       <section class="story-viewer">
         <div class="meta-row">
           <span class="info-badge">현재 스토리 ${activeStory.id}</span>
           <span class="meta-pill">페이지 ${state.stories.pageIndex + 1} / ${activeStory.pages.length}</span>
+          ${state.stories.read.includes(activeStory.id) ? '<span class="meta-pill">다시보기</span>' : '<span class="meta-pill">진행 중</span>'}
         </div>
         <h3>${activeStory.title}</h3>
         <div class="story-lines">
@@ -363,6 +365,29 @@ function renderStoryPanel() {
         <button class="action-btn" data-advance-story="true">${state.stories.pageIndex < activeStory.pages.length - 1 ? '다음' : '읽기 완료'}</button>
       </section>
     ` : ''}
+    <article class="content-card">
+      <h2 class="section-title">역대 스토리 다시보기</h2>
+      <div class="card-grid two-col">
+        ${archiveStories.length ? archiveStories.map((story) => `
+          <div class="story-card">
+            <div>
+              <div class="meta-row">
+                <span class="meta-pill">스토리 ${story.id}</span>
+                <span class="meta-pill">다시보기 가능</span>
+              </div>
+              <h3>${story.title}</h3>
+            </div>
+            <button class="small-btn" data-open-story="${story.id}">다시보기</button>
+          </div>
+        `).join('') : '<p class="empty-state">아직 끝까지 읽은 메인스토리가 없습니다.</p>'}
+      </div>
+    </article>
+    <article class="content-card">
+      <h2 class="section-title">최근 행동 로그</h2>
+      <ul class="log-list">
+        ${state.logs.map((message) => `<li><strong>•</strong> ${message}</li>`).join('')}
+      </ul>
+    </article>
   `;
 }
 
@@ -574,8 +599,6 @@ function renderSidePanel() {
   ];
   unlockList.innerHTML = unlockEntries.map((entry) => `<li>${entry}</li>`).join('');
 
-  const logList = document.getElementById('log-list');
-  logList.innerHTML = state.logs.map((message) => `<li><strong>•</strong> ${message}</li>`).join('');
 }
 
 function render() {
