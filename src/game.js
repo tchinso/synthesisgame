@@ -31,7 +31,7 @@ const getInitialState = () => ({
   manualSaveAt: null,
 });
 
-let state = loadState();
+let state = getInitialState();
 let currentTab = '메인스토리';
 
 function loadState() {
@@ -585,4 +585,5 @@ function render() {
   saveState();
 }
 
+state = loadState();
 render();
