@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>동화책 연금 공방</title>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero-card">
+        <div>
+          <p class="eyebrow">Fairy Tale Alchemy RPG</p>
+          <h1>동화책 연금 공방</h1>
+          <p class="hero-copy">채집, 연금, 납품과 스토리 진행이 이어지는 아기자기한 웹 게임입니다.</p>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-chip">
+            <span>현재 콜</span>
+            <strong id="col-display">0 콜</strong>
+          </div>
+          <div class="stat-chip">
+            <span>진행 요약</span>
+            <strong id="progress-summary">스토리를 시작해 보세요.</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="layout-grid">
+        <section class="main-panel">
+          <nav class="menu-tabs" id="menu-tabs"></nav>
+          <section id="panel-container" class="panel-container"></section>
+        </section>
+
+        <aside class="side-panel">
+          <section class="side-card">
+            <h2>중요 해금</h2>
+            <ul id="unlock-list" class="simple-list"></ul>
+          </section>
+          <section class="side-card">
+            <h2>최근 행동 로그</h2>
+            <ul id="log-list" class="log-list"></ul>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script type="module" src="src/game.js"></script>
+  </body>
+</html>
