@@ -1,14 +1,6 @@
-여전히 게임을 켰는데 아무 메뉴도 버튼도 안 떠 오류코드는
-game.js:109 Uncaught ReferenceError: Cannot access 'state' before initialization
-    at game.js:109:51
-    at Array.every (<anonymous>)
-    at allQuestIdsCompleted (game.js:109:14)
-    at conditionMet (game.js:118:14)
-    at Array.every (<anonymous>)
-    at game.js:143:84
-    at Array.forEach (<anonymous>)
-    at hydrateProgress (game.js:142:11)
-    at loadState (game.js:41:5)
-    at game.js:34:13
+스마트폰에서 할 때 메인스토리를 여러개 진행하면 다시보기가 너무 밀려서 한참을 스크롤해야하는 불편함이 있어.
+메인스토리 탭에서 아직 안읽은 최신 메인스토리를 여는 버튼만 최상단에 표시하고 그 바로 밑에 스토리 읽기를 넣어. 그리고 역대 스토리 다시보기는 제일 아래에 있는 로그 바로 앞에 위치해줘.
 
+메인스토리 0200 완료시 퀘스트 추가를 퀘스트 아이디 0201 0202 0203 0204 0205 0206 0207 0208로 추가
+퀘스트 0201 완료 보상을 150콜로 수정
 
