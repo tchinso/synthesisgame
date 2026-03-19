@@ -115,6 +115,17 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 .resource-row, .quest-card, .recipe-card, .sale-card, .story-card {
   display: grid; gap: 12px; padding: 16px; border: 1px solid var(--line); border-radius: 18px; background: var(--panel-strong);
 }
+
+.story-highlight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid #f1d3dd;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #fff7fa, #fffdf8);
+}
 .story-lines {
   min-height: 180px;
   display: grid;
@@ -150,7 +161,7 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 }
 @media (max-width: 760px) {
   .app-shell { padding: 16px; }
-  .hero-card { flex-direction: column; }
+  .hero-card, .story-highlight { flex-direction: column; }
   .inventory-columns, .two-col { grid-template-columns: 1fr; }
   .menu-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
