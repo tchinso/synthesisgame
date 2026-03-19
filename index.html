@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>포포리의 합성 공방</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero-panel">
+        <div>
+          <p class="eyebrow">Fairy Tale Alchemy RPG</p>
+          <h1>포포리의 합성 공방</h1>
+          <p class="hero-text">
+            채집으로 재료를 모으고, 연금으로 물건을 만들고, 마을 사람들의 부탁을 해결하며
+            동화책 같은 모험을 이어가세요.
+          </p>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-card">
+            <span>소지 콜</span>
+            <strong id="col-display">0 콜</strong>
+          </div>
+          <div class="stat-card">
+            <span>진행 요약</span>
+            <strong id="progress-summary">스토리를 시작해 보세요</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="layout-grid">
+        <section class="main-panel">
+          <nav class="tab-menu" id="tab-menu"></nav>
+          <section id="tab-content" class="tab-content"></section>
+        </section>
+
+        <aside class="side-panel">
+          <section class="side-card">
+            <h2>진행 중 요약</h2>
+            <div id="active-summary" class="summary-list"></div>
+          </section>
+          <section class="side-card">
+            <h2>해금 알림</h2>
+            <ul id="unlock-feed" class="event-list"></ul>
+          </section>
+          <section class="side-card">
+            <h2>최근 행동 로그</h2>
+            <ul id="log-list" class="event-list"></ul>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
