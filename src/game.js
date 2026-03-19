@@ -5,6 +5,7 @@ import { quests } from '../data/quests.js';
 
 const STORAGE_KEY = 'synthesisgame-save-v1';
 const GATHER_COST = 10;
+const GATHER_TEN_COST = 100;
 const LOG_LIMIT = 10;
 const MENU = ['메인스토리', '퀘스트', '채집', '연금', '판매', '컨테이너', '세이브'];
 
@@ -187,6 +188,19 @@ function hydrateProgress(targetState = state, options = {}) {
   }
 }
 
+function rollGatherResult() {
+  const roll = Math.random();
+  let cumulative = 0;
+  return materials.find((material) => {
+    cumulative += material.probability;
+    return roll <= cumulative;
+  }) || materials[materials.length - 1];
+}
+
+function hasGatherTenUnlock(targetState = state) {
+  return targetState.stories.read.includes('0400');
+}
+
 function gatherMaterial() {
   if (state.col < GATHER_COST) {
     addLog('콜이 부족해 채집에 실패했습니다.');
@@ -195,15 +209,32 @@ function gatherMaterial() {
   }
 
   state.col -= GATHER_COST;
-  const roll = Math.random();
-  let cumulative = 0;
-  const found = materials.find((material) => {
-    cumulative += material.probability;
-    return roll <= cumulative;
-  }) || materials[materials.length - 1];
+  const found = rollGatherResult();
 
   addItem(found.name, 1);
   addLog(`채집 성공: ${found.name} x1을(를) 획득했습니다. (-${GATHER_COST}콜)`);
+  hydrateProgress();
+  render();
+}
+
+function gatherMaterialTen() {
+  if (!hasGatherTenUnlock()) return;
+  if (state.col < GATHER_TEN_COST) {
+    addLog('콜이 부족해 10회 채집에 실패했습니다.');
+    render();
+    return;
+  }
+
+  state.col -= GATHER_TEN_COST;
+  const results = new Map();
+  for (let i = 0; i < 10; i += 1) {
+    const found = rollGatherResult();
+    addItem(found.name, 1);
+    results.set(found.name, (results.get(found.name) || 0) + 1);
+  }
+
+  const summary = [...results.entries()].map(([name, count]) => `${name} x${count}`).join(', ');
+  addLog(`10회 채집 성공: ${summary} (-${GATHER_TEN_COST}콜)`);
   hydrateProgress();
   render();
 }
@@ -280,6 +311,9 @@ function advanceStory() {
   if (!state.stories.read.includes(story.id)) {
     state.stories.read.push(story.id);
     addLog(`메인스토리 ${story.id} ${story.title}을(를) 끝까지 읽었습니다.`);
+    if (story.id === '0400') {
+      addLog('스토리 0400 보상으로 채집 탭에 10회씩 채집 버튼이 추가되었습니다.');
+    }
     (story.rewards.unlockQuestIds || []).forEach(unlockQuest);
   }
   hydrateProgress();
@@ -442,13 +476,15 @@ function renderQuestPanel() {
 }
 
 function renderGatherPanel() {
+  const gatherTenUnlocked = hasGatherTenUnlock();
   return `
     <article class="content-card">
       <h2 class="section-title">채집</h2>
-      <p class="section-copy">채집 1회에는 10콜이 필요합니다. 확률표에 따라 재료 1개를 획득하며, 콜이 부족하면 채집할 수 없습니다.</p>
+      <p class="section-copy">채집 1회에는 10콜이 필요합니다. 스토리 0400을 읽으면 100콜을 소모하는 10회 채집도 사용할 수 있습니다.</p>
       <div class="resource-row">
         <span class="info-badge">채집 비용 ${GATHER_COST}콜</span>
         <button class="action-btn" data-gather="true" ${state.col >= GATHER_COST ? '' : 'disabled'}>채집하기</button>
+        ${gatherTenUnlocked ? `<button class="action-btn" data-gather-ten="true" ${state.col >= GATHER_TEN_COST ? '' : 'disabled'}>10회씩 채집</button>` : '<span class="inline-note">스토리 0400 완독 시 10회씩 채집 해금</span>'}
       </div>
     </article>
     <article class="content-card">
@@ -575,6 +611,7 @@ function renderPanel() {
   panelContainer.querySelector('[data-advance-story="true"]')?.addEventListener('click', advanceStory);
   panelContainer.querySelectorAll('[data-complete-quest]').forEach((button) => button.addEventListener('click', () => completeQuest(button.dataset.completeQuest)));
   panelContainer.querySelector('[data-gather="true"]')?.addEventListener('click', gatherMaterial);
+  panelContainer.querySelector('[data-gather-ten="true"]')?.addEventListener('click', gatherMaterialTen);
   panelContainer.querySelectorAll('[data-craft]').forEach((button) => button.addEventListener('click', () => craftItem(button.dataset.craft)));
   panelContainer.querySelectorAll('[data-sell]').forEach((button) => button.addEventListener('click', () => sellItem(button.dataset.sell)));
   panelContainer.querySelector('[data-manual-save="true"]')?.addEventListener('click', manualSave);
