@@ -1,5 +1,4 @@
-시작 콜을 100콜로 바꿔줘.
-그리고 지금 게임 켰는데 뭐 아무것도 버튼이 안 떠. 일단 오류 정보를 여기다가 알려줄게
+그리고 지금 게임 켰는데 뭐 아무것도 메뉴도 버튼도 아무것도 안 떠. 일단 오류 정보를 여기다가 알려줄게
 TypeError: Cannot read properties of undefined (reading 'Future')
     at Web of Trust.user.js:1765:30
     at Window.<anonymous> (Web of Trust.user.js:1784:2)
@@ -21,3 +20,5 @@ game.js:109 Uncaught ReferenceError: Cannot access 'state' before initialization
     at hydrateProgress (game.js:142:11)
     at loadState (game.js:41:5)
     at game.js:34:13
+
+그리고 시작할 때 기본 소지콜을 100콜로 변경
